@@ -75,3 +75,9 @@ INSERT INTO WORKS_ON Values('987654321',30,20);
 INSERT INTO WORKS_ON Values('987654321',20,15);
 INSERT INTO WORKS_ON Values('888665555',20,NULL);
 
+//Retrieve the social security numbers of all employees who work on project numbers 1,2, or 3.
+SELECT DISTINCT Essn
+FROM WORKS_ON
+WHERE PNO IN (1, 2, 3);
+
+//
