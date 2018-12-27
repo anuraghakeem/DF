@@ -1,0 +1,165 @@
+> db.Film.insert({Title:"Harry Potter",Year_of_Production:2002,Type:"Adventure",Director:"Ram",Actors:["John","Zaid","Zubin","Rithika"]})
+> db.Film.insert({Title:"John Wick",Year_of_Production:2004,Type:"Adventure",Director:"Shyam",Actors:["Zaid","Zubin","Rithika"]})
+> db.Film.insert({Title:"Now You See Me",Year_of_Production:2007,Type:"Adventure",Director:"Ram",Actors:["John","Zaid","Zubin","Rithika"]})
+> db.Film.insert({Title:"Now You See Me 2",Year_of_Production:2018,Type:"Adventure",Director:"Ram",Actors:["John","Zaid","Zubin","Rithika"]})
+> db.Film.find().pretty()
+{
+	"_id" : ObjectId("5bcec6e8d2709cb3307ed476"),
+	"Title" : "Harry Potter",
+	"Year_of_Production" : 2002,
+	"Type" : "Adventure",
+	"Director" : "Ram",
+	"Actors" : [
+		"John",
+		"Zaid",
+		"Zubin",
+		"Rithika"
+	]
+}
+{
+	"_id" : ObjectId("5bcec704d2709cb3307ed477"),
+	"Title" : "John Wick",
+	"Year_of_Production" : 2004,
+	"Type" : "Adventure",
+	"Director" : "Shyam",
+	"Actors" : [
+		"Zaid",
+		"Zubin",
+		"Rithika"
+	]
+}
+{
+	"_id" : ObjectId("5bcec724d2709cb3307ed478"),
+	"Title" : "Now You See Me",
+	"Year_of_Production" : 2007,
+	"Type" : "Adventure",
+	"Director" : "Ram",
+	"Actors" : [
+		"John",
+		"Zaid",
+		"Zubin",
+		"Rithika"
+	]
+}
+{
+	"_id" : ObjectId("5bcec8d1d2709cb3307ed479"),
+	"Title" : "Now You See Me 2",
+	"Year_of_Production" : 2018,
+	"Type" : "Adventure",
+	"Director" : "Ram",
+	"Actors" : [
+		"John",
+		"Zaid",
+		"Zubin",
+		"Rithika"
+	]
+}
+> db.createCollection("Actors")
+{ "ok" : 1 }
+> db.Actors.insert({name:"John",UID:134,Address:"Brooklyn",Bdate:"26th Feb 1969"})
+> db.Actors.insert({name:"Danny",UID:145,Address:"Stafford",Bdate:"25th March 1982"})
+> db.Actors.insert({name:"Zaid",UID:267,Address:"Bengaluru",Bdate:"25th June 1997"})
+> db.Actors.insert({name:"Zubin",UID:118,Address:"Iran",Bdate:"28th Feb 1998"})
+> db.Actors.insert({name:"Rithika",UID:131,Address:"Arizona",Bdate:"28th July 1998"})
+> db.createCollection("Directors")
+> db.Directors.insert({name:"Ram",UID:456,Address:"Delhi",Bdate:"26th June 1956"})
+> db.Directors.insert({name:"Shyam",UID:457,Address:"Mumbai",Bdate:"24th December 1967"})
+> db.Directors.find().pretty()
+{
+	"_id" : ObjectId("5bcec598d2709cb3307ed474"),
+	"name" : "Ram",
+	"UID" : 456,
+	"Address" : "Delhi",
+	"Bdate" : "26th June 1956"
+}
+{
+	"_id" : ObjectId("5bcec5bbd2709cb3307ed475"),
+	"name" : "Shyam",
+	"UID" : 457,
+	"Address" : "Mumbai",
+	"Bdate" : "24th December 1967"
+}
+> db.Actors.find().pretty()
+{
+	"_id" : ObjectId("5bcec43dd2709cb3307ed46f"),
+	"name" : "John",
+	"UID" : 134,
+	"Address" : "Brooklyn",
+	"Bdate" : "26th Feb 1969"
+}
+{
+	"_id" : ObjectId("5bcec479d2709cb3307ed470"),
+	"name" : "Danny",
+	"UID" : 145,
+	"Address" : "Stafford",
+	"Bdate" : "25th march 1982"
+}
+{
+	"_id" : ObjectId("5bcec4e6d2709cb3307ed471"),
+	"name" : "Zaid",
+	"UID" : 267,
+	"Address" : "Bengaluru",
+	"Bdate" : "25th June 1997"
+}
+{
+	"_id" : ObjectId("5bcec4fdd2709cb3307ed472"),
+	"name" : "Zubin",
+	"UID" : 118,
+	"Address" : "Iran",
+	"Bdate" : "28th Feb 1998"
+}
+{
+	"_id" : ObjectId("5bcec555d2709cb3307ed473"),
+	"name" : "Rithika",
+	"UID" : 131,
+	"Address" : "Arizona",
+	"Bdate" : "28th July 1998"
+}
+
+//List all Movies acted by John in 2018
+
+> db.Film.find({Actors:"John",Year_of_Production:2018}).pretty()
+{
+	"_id" : ObjectId("5bcec8d1d2709cb3307ed479"),
+	"Title" : "Now You See Me 2",
+	"Year_of_Production" : 2018,
+	"Type" : "Adventure",
+	"Director" : "Ram",
+	"Actors" : [
+		"John",
+		"Zaid",
+		"Zubin",
+		"Rithika"
+	]
+}
+
+//List only actors names and type of movie directed by Ram
+
+> db.Film.find({Director:"Ram"},{Actors:1,Type:1,_id:0}).pretty()
+{
+	"Type" : "Adventure",
+	"Actors" : [
+		"John",
+		"Zaid",
+		"Zubin",
+		"Rithika"
+	]
+}
+{
+	"Type" : "Adventure",
+	"Actors" : [
+		"John",
+		"Zaid",
+		"Zubin",
+		"Rithika"
+	]
+}
+{
+	"Type" : "Adventure",
+	"Actors" : [
+		"John",
+		"Zaid",
+		"Zubin",
+		"Rithika"
+	]
+}
