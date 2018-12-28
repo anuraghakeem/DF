@@ -75,9 +75,19 @@ INSERT INTO WORKS_ON Values('987654321',30,20);
 INSERT INTO WORKS_ON Values('987654321',20,15);
 INSERT INTO WORKS_ON Values('888665555',20,NULL);
 
+//Retrieve the name of all employees whose salary is greater than the salary of all employees in dept 5.
+
+SELECT Fname,Lname 
+FROM EMPLOYEE 
+WHERE Salary >all (SELECT Salary FROM EMPLOYEE WHERE Dno=5);
+
 //Retrieve the social security numbers of all employees who work on project numbers 1,2, or 3.
 SELECT DISTINCT Essn
 FROM WORKS_ON
 WHERE PNO IN (1, 2, 3);
 
-//
+//Display the total Number of hours put in by all employees on every project.
+
+SELECT Pno,SUM(Hours) 
+FROM WORKS_ON
+GROUP BY Pno;
