@@ -61,4 +61,4 @@ GROUP BY S.Sname, S.Sid
 //Update part color supplied by supplier S3 to Yellow
 UPDATE PART
 SET Color='Yellow'
-WHERE 
+WHERE PID IN (SELECT C.PID FROM PART P, SUPPLIER S, SHIPMENT C WHERE C.Sid=S.Sid and P.PID=C.PID and C.Sid=3);
