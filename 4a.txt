@@ -49,8 +49,8 @@ INSERT INTO SHIPMENT VALUES (4, 5, 400);
 //Find the Sids of suppliers who supply green part
 
 SELECT Distinct S.Sid
-FROM SUPPLIER S, Parts P
-WHERE S.Sid=P.PID AND P.Color like 'Green%';
+FROM SUPPLIER S, Parts P, SHIPMENT C
+WHERE C.Sid=S.Sid AND P.PID=C.PID AND P.Color like 'Green';
 
 //For every supplier print the name of the supplier and the total number of parts that he/she supplies.
 SELECT S.Sname, COUNT(*) as PartCount
