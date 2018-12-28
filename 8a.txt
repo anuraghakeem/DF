@@ -5,36 +5,36 @@ Fname varchar(10),
 Country varchar(10), 
 Yborn varchar(10), 
 Bplace varchar(10),
-primary key (PId)
+primary key (Pid)
 );
 
 create table MATCH (
-MatchId int, 
+MatchID int, 
 Team1 varchar(10),
 Team2 varchar(10), 
 Ground varchar(10), 
 Date date, 
 Winner varchar(10),
-primary key(MatchId)
+primary key(MatchID)
 );
 
 create table BATTING (
-MatchId int, 
+MatchID int, 
 Pid int, 
 Nruns int, 
 Fours int, 
 Sixes int,
-primary key(MatchId,Pid),foreign key(MatchId) references MATCH(MatchId),foreign key(Pid) references PLAYER(PId)
+primary key(MatchID,Pid),foreign key(MatchID) references MATCH(MatchID),foreign key(Pid) references PLAYER(Pid)
 );
 
 create table BOWLING (
-MatchId int, 
+MatchID int, 
 Pid int, 
 Novers int, 
 Maidens varchar(10), 
 Nruns int, 
 Nwickets int,
-primary key(MatchId,Pid),foreign key(MatchId) references MATCH(MatchId),foreign key(Pid) references PLAYER(PId)
+primary key(MatchID,Pid),foreign key(MatchID) references MATCH(MatchID),foreign key(Pid) references PLAYER(Pid)
 );
 
 //Display the sorted list of ground names where Australia has played as team1.
@@ -51,4 +51,4 @@ WHERE Fname='Dhoni';
 //Find the names of players who did batting in match 2689.
 SELECT Fname,Lname 
 FROM (PLAYER natural join MATCH) natural join BATTING 
-WHERE Date LIKE '%2686%';
+WHERE MatchID=2686;
