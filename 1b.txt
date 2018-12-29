@@ -16,8 +16,10 @@ WriteResult({ "nInserted" : 1 })
 
 //List the name and address of all restaurants in Bangalore with Italian cuisine.
 > db.rest.find({cuisine:”Italian”,area:”Bangalore”},{name:1,building:1,street:1,area:1,pin:1,_id:0}) 
+
 { "name" : "Tailo", "building" : 14 , “street” : “MG” , “area” : “Bangalore” , “pin” : 45 } 
 
 //List the name, address and nearby landmarks of all restaurants in Bangalore where north Indianthali is available.
 > db.rest.find({famousfor:"north indian thali”,area:”Bangalore”},{name:1,building:1,street:1,area:1,pin:1,landmark:1,_id:0}) 
+
 { "name" : "Kesar", "building" : 15 , “street” : “SS” , “area” : “Bangalore” , “pin” : 55 , "landmark" : "milk factory" } 
