@@ -52,7 +52,9 @@ INSERT INTO DEPENDENT VALUES('Elizabeth','123456789');
 //For each dept, retreive the dept name and avg salary of all employees working in that department
 
 SELECT Dname, AVG(Salary)
-FROM DEPARTMENT, EMPLOYEE;
+FROM DEPARTMENT, EMPLOYEE
+WHERE Dno=Dnumber
+GROUP BY Dname;
 
 //List names of managers who have at least one dependent
 
