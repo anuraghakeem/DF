@@ -45,9 +45,10 @@ WHERE salary=(SELECT MAX(salary) FROM employees);
 
 //Find the name of aircrafts such that all pilots certified to operate them earn more than 50000
 
-SELECT distinct aname 
-FROM aircraft a,certified c,employees e 
-WHERE a.aid=c.aid and c.eid=e.eid and e.salary>50000;
+SELECT aname 
+FROM aircraft natural join certified natural join employee 
+GROUP BY aname
+HAVING salary >50000;
  
 //Find the employees who are certified for the maximum number of aircrafts.
 
