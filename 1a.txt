@@ -62,4 +62,4 @@ WHERE R1.bid = B1.bid AND B1.color = 'green'
 
 //Find the Sid’s of sailors who have not reserved a boat.
 
-(SELECT sid FROM Sailors ) except (SELECT sid FROM Reserves);
+(SELECT sid FROM Sailors ) minus (SELECT sid FROM Reserves);
