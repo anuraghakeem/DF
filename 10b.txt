@@ -16,7 +16,7 @@ db.movie1.find({$and : [{act_n:{$in : ["john","elly"]}},{year:2012}]},{film:1}).
 { "_id" : ObjectId("5c273e247fd87cec5944fabf"), "film" : "john wick" }
 { "_id" : ObjectId("5c273e2e7fd87cec5944fac0"), "film" : "aquaman" }
 
-//ii.	List only the name and type of the movie where Ram has acted sorted by movie names.
+//List only the name and type of the movie where Ram has acted sorted by movie names.
 db.movie1.find({act_n:"ram"},{film:1,type:1}).sort({film:1}).pretty()
 
 { "_id" : ObjectId("5c273ddb7fd87cec5944fabd"), "film" : "battleship", "type" : "thriller" }
