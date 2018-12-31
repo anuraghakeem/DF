@@ -31,19 +31,11 @@ Foreign Key(Iono) references ORDER1(Ono) on delete cascade,
 Foreign Key(Oino) references ITEM(Ino) on delete cascade
 );
  
-Create table WAREHOUSE(
-Wno INT,
-Wcity VARCHAR(50),
-Primary Key(Wno)
-);
- 
 Create table SHIPMENT(
 Sono INT,
-Swno INT,
 Shipdate DATE,
-Primary key(Sono,Swno), 
+Primary key(Sono), 
 Foreign Key(Sono) references ORDER1(Ono) on delete cascade, 
-Foreign Key(Swno) references WAREHOUSE(Wno) on delete cascade
 );
 
 //insert values
@@ -73,12 +65,6 @@ Insert into ORDER_ITEM values(2,3,2);
 Insert into ORDER_ITEM values(3,4,3);
 Insert into ORDER_ITEM values(4,3,1);
 Insert into ORDER_ITEM values(5,2,1);
- 
-Insert into WAREHOUSE values(1,'Bangalore');
-Insert into WAREHOUSE values(2,'Bangalore');
-Insert into WAREHOUSE values(3,'Mysore');
-Insert into WAREHOUSE values(4,'Mangalore');
-Insert into WAREHOUSE values(5,'Mangalore');
  
 Insert into SHIPMENT values(1,1,'03-Jun-2016');
 Insert into SHIPMENT values(2,1,'03-Jun-2016');
