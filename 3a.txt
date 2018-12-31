@@ -51,5 +51,5 @@ WHERE	a.aid=c.aid and c.eid=e.eid and e.salary>50000;
  
 //Find the employees who are certified for the maximum number of aircrafts.
 
-SELECT ename,mac(c)
+SELECT ename,max(c)
 FROM (SELECT eid,count(*) as c FROM certified GROUP BY eid) natural join employees;
